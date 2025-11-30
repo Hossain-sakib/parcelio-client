@@ -1,54 +1,99 @@
 import React from "react";
 import { NavLink } from "react-router";
+import ParcelioLogo from "../ParcelioLogo/ParcelioLogo";
 
 const NavBar = () => {
   const navItems = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "text-[#CAEB66] font-semibold" : "hover:text-[#CAEB66]"
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/about">About</NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? "text-[#CAEB66] font-semibold" : "hover:text-[#CAEB66]"
+          }
+        >
+          About
+        </NavLink>
       </li>
-
-      
+      <li>
+        <NavLink
+          to="/services"
+          className={({ isActive }) =>
+            isActive ? "text-[#CAEB66] font-semibold" : "hover:text-[#CAEB66]"
+          }
+        >
+          Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? "text-[#CAEB66] font-semibold" : "hover:text-[#CAEB66]"
+          }
+        >
+          Contact
+        </NavLink>
+      </li>
     </>
   );
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <div className="sticky top-6 z-50 ">
+      <div className="navbar bg-black shadow-md rounded-2xl px-6 md:px-8 py-4 text-white">
+        {/* Left: Logo & Mobile Menu */}
+        <div className="navbar-start">
+          <div className="dropdown">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52 text-white"
             >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
+              {navItems}
+            </ul>
           </div>
-          <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            {navItems}
-          </ul>
+          <ParcelioLogo />
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navItems}</ul>
-      </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+
+        {/* Center: Desktop Menu */}
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 gap-4">{navItems}</ul>
+        </div>
+
+        {/* Right: CTA Button */}
+        <div className="navbar-end">
+          <NavLink
+            to="/signup"
+            className="btn bg-[#CAEB66] hover:bg-lime-200 text-black border-none"
+          >
+            Get Started
+          </NavLink>
+        </div>
       </div>
     </div>
   );
