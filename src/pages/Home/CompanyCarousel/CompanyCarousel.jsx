@@ -1,8 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/autoplay";
-
+import React from "react";
+import Marquee from "react-fast-marquee";
 
 import logo1 from "../../../assets/brands/amazon.png";
 import logo2 from "../../../assets/brands/amazon_vector.png";
@@ -16,38 +13,43 @@ const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7];
 
 const LogoCarousel = () => {
   return (
-    <div className="py-14 px-4 max-w-7xl mx-auto">
+    <div className="pb-20 px-4 max-w-7xl mx-auto">
       {/* Heading */}
       <div className="text-center mb-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#03373D]">
+        <h2
+          className="text-2xl md:text-3xl font-bold text-[#03373D]"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+        >
           Our Trusted Partners
         </h2>
-        <p className="text-gray-500 mt-2">
+        <p
+          className="text-gray-500 mt-2"
+          data-aos="fade-up"
+          data-aos-delay="150"
+          data-aos-duration="1200"
+        >
           Leading global companies trust our services.
         </p>
       </div>
 
-      <Swiper
-        modules={[Autoplay]}
-        autoplay={{ delay: 1500 }}
-        loop={true}
-        grabCursor={true}
-        breakpoints={{
-          320: { slidesPerView: 2, spaceBetween: 20 },
-          640: { slidesPerView: 3, spaceBetween: 30 },
-          1024: { slidesPerView: 5, spaceBetween: 40 },
-        }}
+      {/* Marquee */}
+      <Marquee
+        gradient={false}
+        speed={100}
+        pauseOnHover={true}
+        loop={0}
       >
-        {logos.map((logo, index) => (
-          <SwiperSlide key={index}>
+        {[...logos, ...logos].map((logo, index) => (
+          <div key={index} className="flex items-center justify-center mx-8">
             <img
               src={logo}
               alt={`Brand ${index}`}
-              className="h-14 w-auto mx-auto grayscale hover:grayscale-0 transition duration-300"
+              className="h-10 w-auto grayscale hover:grayscale-0 transition duration-300"
             />
-          </SwiperSlide>
+          </div>
         ))}
-      </Swiper>
+      </Marquee>
     </div>
   );
 };

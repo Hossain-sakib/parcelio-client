@@ -49,11 +49,22 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <div className="py-14 px-4 max-w-7xl mx-auto">
+    <div className="pb-20 px-4 max-w-7xl mx-auto">
       {/* Heading */}
       <div className="text-center mb-12 max-w-2xl mx-auto px-2">
-        <h2 className="text-[#03373D] text-3xl md:text-4xl font-bold mb-3">Our Services</h2>
-        <p className="text-gray-500 text-sm md:text-base">
+        <h2
+          className="text-[#03373D] text-3xl md:text-4xl font-bold mb-3"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+        >
+          Our Services
+        </h2>
+        <p
+          className="text-gray-500 text-sm md:text-base"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="1200"
+        >
           We provide fast, secure, and reliable delivery services designed to
           make your parcel experience smooth and hassle-free.
         </p>
@@ -62,7 +73,15 @@ const Services = () => {
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {servicesData.map((service, index) => (
-          <Service service={service} key={index} />
+          <div
+            key={index}
+            data-aos="fade-up"
+            data-aos-delay={index * 150}
+            data-aos-duration="1200"
+            className="h-full flex"
+          >
+            <Service service={service} />
+          </div>
         ))}
       </div>
     </div>
