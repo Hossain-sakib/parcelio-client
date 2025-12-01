@@ -9,7 +9,7 @@ Aos.init();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className="font-urbanist bg-linear-to-b from-white to-[#F2FBE1]">
+    <div className="font-urbanist bg-linear-to-br from-[#F2FBE1] to-white">
       <RouterProvider router={router} />
     </div>
   </StrictMode>

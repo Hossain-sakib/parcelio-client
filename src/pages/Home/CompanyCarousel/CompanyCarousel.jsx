@@ -13,7 +13,7 @@ const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7];
 
 const LogoCarousel = () => {
   return (
-    <div className="pb-20 px-4 max-w-7xl mx-auto">
+    <div className="px-4">
       {/* Heading */}
       <div className="text-center mb-10">
         <h2

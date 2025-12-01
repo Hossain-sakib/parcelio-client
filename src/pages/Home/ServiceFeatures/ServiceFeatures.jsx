@@ -24,7 +24,7 @@ const services = [
 
 const ServiceFeatures = () => {
   return (
-    <div className="pb-20 max-w-7xl mx-auto space-y-8">
+    <div className="space-y-8">
       {services.map((service, index) => (
         <div
           key={index}

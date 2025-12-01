@@ -89,7 +89,7 @@ const NavBar = () => {
         <div className="navbar-end">
           <NavLink
             to="/signup"
-            className="btn bg-[#CAEB66] hover:bg-lime-200 text-black border-none"
+            className="bg-transparent text-[#CAEB66] border-2 border-[#CAEB66] hover:bg-[#CAEB66] hover:text-black px-4 py-2 rounded-2xl transition-colors duration-300"
           >
             Get Started
           </NavLink>
