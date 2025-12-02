@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router";
 import ParcelioLogo from "../ParcelioLogo/ParcelioLogo";
+import { HiMiniBars3BottomLeft } from "react-icons/hi2";
+import { AiOutlineClose } from "react-icons/ai";
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   const navItems = (
     <>
       <li>
@@ -11,6 +17,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive ? "text-[#CAEB66] font-semibold" : "hover:text-[#CAEB66]"
           }
+          onClick={() => setIsOpen(false)} // close menu on click
         >
           Home
         </NavLink>
@@ -21,6 +28,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive ? "text-[#CAEB66] font-semibold" : "hover:text-[#CAEB66]"
           }
+          onClick={() => setIsOpen(false)}
         >
           About
         </NavLink>
@@ -31,6 +39,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive ? "text-[#CAEB66] font-semibold" : "hover:text-[#CAEB66]"
           }
+          onClick={() => setIsOpen(false)}
         >
           Services
         </NavLink>
@@ -41,6 +50,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive ? "text-[#CAEB66] font-semibold" : "hover:text-[#CAEB66]"
           }
+          onClick={() => setIsOpen(false)}
         >
           Contact
         </NavLink>
@@ -49,49 +59,37 @@ const NavBar = () => {
   );
 
   return (
-    <div className="sticky top-6 z-50 ">
-      <div className="navbar bg-black shadow-md rounded-2xl px-6 md:px-8 py-4 text-white">
+    <div className="sticky top-4 lg:top-6 z-50">
+      <div className="flex flex-row items-center bg-black shadow-md mx-auto rounded-lg lg:rounded-2xl px-3 py-3 lg:px-4 lg:py-6 text-white">
         {/* Left: Logo & Mobile Menu */}
-        <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52 text-white"
-            >
-              {navItems}
-            </ul>
+        <div className="navbar-start flex items-center">
+          <div className="lg:hidden">
+            <button onClick={toggleMenu} className="text-2xl font-black hover:text-[#CAEB66]">
+              {isOpen ? <AiOutlineClose /> : <HiMiniBars3BottomLeft />}
+            </button>
+            {isOpen && (
+              <ul className="menu text-md dropdown-content font-bold mt-5 p-2 shadow bg-black rounded-box w-52 text-white absolute">
+                {navItems}
+              </ul>
+            )}
           </div>
-          <ParcelioLogo />
+          <div className="ml-4">
+            <ParcelioLogo />
+          </div>
         </div>
 
         {/* Center: Desktop Menu */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-4">{navItems}</ul>
+          <ul className="menu menu-horizontal text-md font-bold px-1 gap-4">{navItems}</ul>
         </div>
 
         {/* Right: CTA Button */}
         <div className="navbar-end">
           <NavLink
             to="/signup"
-            className="bg-transparent text-[#CAEB66] border-2 border-[#CAEB66] hover:bg-[#CAEB66] hover:text-black px-4 py-2 rounded-2xl transition-colors duration-300"
+            className="bg-transparent font-bold text-sm md:text-md px-6 py-2 text-[#CAEB66] border-2 border-[#CAEB66] hover:bg-[#CAEB66] hover:text-black md:px-4 md:py-2 rounded-lg md:rounded-2xl transition-colors duration-300"
           >
-            Get Started
+            Sign Up
           </NavLink>
         </div>
       </div>

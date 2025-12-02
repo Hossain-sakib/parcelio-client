@@ -23,18 +23,18 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <div className="px-4">
+    <div className="lg:space-y-8 space-y-4">
       {/* Section Heading */}
-      <div className="text-center mb-16">
+      <div className="text-center">
         <h2
-          className="text-3xl md:text-4xl font-bold text-[#03373D] mb-4"
+          className="text-3xl lg:text-6xl font-bold text-black lg:mb-3 mb-2"
           data-aos="fade-up"
           data-aos-duration="1200"
         >
           How It Works
         </h2>
         <p
-          className="text-gray-500 text-base md:text-lg"
+          className="text-black text-md md:text-lg"
           data-aos="fade-up"
           data-aos-delay="150"
           data-aos-duration="1200"
@@ -45,7 +45,7 @@ const HowItWorks = () => {
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
         {steps.map((step, index) => (
           <div
             key={index}
@@ -59,10 +59,10 @@ const HowItWorks = () => {
               alt={step.title}
               className="h-16 w-16 mb-4 object-contain"
             />
-            <h3 className="text-xl font-semibold text-[#03373D] mb-2">
+            <h3 className="text-xl font-semibold text-black mb-2">
               {step.title}
             </h3>
-            <p className="text-gray-600 text-sm md:text-base">
+            <p className="text-black text-sm md:text-base">
               {step.description}
             </p>
           </div>

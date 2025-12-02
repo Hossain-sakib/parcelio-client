@@ -24,32 +24,27 @@ const services = [
 
 const ServiceFeatures = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       {services.map((service, index) => (
         <div
           key={index}
-          className={`flex flex-col md:flex-row items-center bg-white shadow-lg rounded-2xl overflow-hidden ${
-            index % 2 === 1 ? "md:flex-row-reverse" : ""
+          className={`w-full flex ${
+            index % 2 === 1 ? "justify-end" : "justify-start"
           }`}
-          data-aos="fade-up"
-          data-aos-delay={index * 150}  // staggered animation
+          data-aos={index % 2 === 1 ? "fade-left" : "fade-right"}
+          data-aos-delay={index * 150}
           data-aos-duration="1200"
         >
-          {/* Image Column */}
-          <div className="md:w-1/5 w-full p-6">
+          <div className="bg-white shadow-lg rounded-2xl overflow-hidden w-full md:w-3/5 p-6 flex flex-col items-center md:items-start">
             <img
               src={service.illustration}
               alt={service.title}
-              className="w-full h-full object-contain"
+              className="w-32 h-32 object-contain mb-4"
             />
-          </div>
-
-          {/* Text Column */}
-          <div className="md:w-4/5 w-full p-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#03373D] mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-black mb-4 leading-snug">
               {service.title}
             </h3>
-            <p className="text-gray-600 text-base md:text-lg">
+            <p className="text-black text-base md:text-lg leading-relaxed">
               {service.description}
             </p>
           </div>

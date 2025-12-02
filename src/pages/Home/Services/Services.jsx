@@ -49,29 +49,28 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <div className="px-4">
+    <div className="lg:space-y-12 space-y-6">
       {/* Heading */}
-      <div className="text-center mb-12 max-w-2xl mx-auto px-2">
+      <div className="text-center max-w-2xl mx-auto px-2">
         <h2
-          className="text-[#03373D] text-3xl md:text-4xl font-bold mb-3"
+          className="text-3xl lg:text-5xl font-bold text-black mb-4"
           data-aos="fade-up"
           data-aos-duration="1200"
         >
           Our Services
         </h2>
         <p
-          className="text-gray-500 text-sm md:text-base"
+          className="text-black text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed"
           data-aos="fade-up"
           data-aos-delay="100"
           data-aos-duration="1200"
         >
-          We provide fast, secure, and reliable delivery services designed to
-          make your parcel experience smooth and hassle-free.
+          We provide fast, secure, and reliable delivery services designed to make your parcel experience smooth and hassle-free.
         </p>
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
         {servicesData.map((service, index) => (
           <div
             key={index}

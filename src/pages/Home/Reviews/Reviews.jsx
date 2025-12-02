@@ -40,7 +40,7 @@ const reviews = [
     name: "Fatima Noor",
     designation: "Small Business Owner",
     review:
-      "Parcelio’s service is outstanding. They really care about customer satisfaction and timely delivery.",
+      "Parcelio`s service is outstanding. They really care about customer satisfaction and timely delivery.",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     rating: 5,
   },
@@ -56,7 +56,7 @@ const reviews = [
     name: "Leila Hassan",
     designation: "Entrepreneur",
     review:
-      "Parcelio’s platform is so easy to use. From placing orders to delivery, everything is smooth and reliable.",
+      "Parcelio`s platform is so easy to use. From placing orders to delivery, everything is smooth and reliable.",
     avatar: "https://randomuser.me/api/portraits/women/23.jpg",
     rating: 5,
   },
@@ -72,13 +72,13 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <div>
+    <div className="lg:space-y-8 space-y-6">
       {/* Heading */}
-      <div className="text-center mb-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#03373D]">
+      <div className="text-center mb-6">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
           What Our Customers Say
         </h2>
-        <p className="text-gray-500 mt-2 text-base md:text-lg">
+        <p className="text-black mt-2 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
           Trusted by businesses and individuals across Bangladesh
         </p>
       </div>
@@ -98,15 +98,17 @@ const Reviews = () => {
                 className="h-14 w-14 rounded-full object-cover mr-4"
               />
               <div>
-                <h3 className="text-lg font-semibold text-[#03373D]">
+                <h3 className="text-lg font-semibold text-black">
                   {review.name}
                 </h3>
-                <p className="text-gray-500 text-sm">{review.designation}</p>
+                <p className="text-black text-sm">{review.designation}</p>
               </div>
             </div>
 
             {/* Review Text */}
-            <p className="text-gray-600 text-base mb-4">{review.review}</p>
+            <p className="text-black text-base mb-4 leading-relaxed">
+              {review.review}
+            </p>
 
             {/* Rating */}
             <div className="flex">

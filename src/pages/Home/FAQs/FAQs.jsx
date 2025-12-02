@@ -1,4 +1,4 @@
-import React from "react";
+import faqIllustration from "../../../assets/faq-icon.png"; // replace with your actual image path
 
 const faqs = [
   {
@@ -35,33 +35,41 @@ const faqs = [
 
 const FAQs = () => {
   return (
-    <div>
+    <div className="lg:space-y-8 space-y-6">
       {/* Heading */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#03373D]">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
           Frequently Asked Questions
         </h2>
-        <p className="text-gray-500 mt-2 text-base md:text-lg">
+        <p className="text-black mt-2 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
           Answers to common questions about our services
         </p>
       </div>
 
-      {/* FAQ Accordion */}
-      <div className="max-w-4xl mx-auto space-y-4">
-        {faqs.map((faq, index) => (
-          <details
-            key={index}
-            className="collapse bg-white border border-gray-300 rounded-xl"
-            open={index === 0} // first FAQ open by default
-          >
-            <summary className="collapse-title font-semibold text-[#03373D] p-6 cursor-pointer">
-              {faq.question}
-            </summary>
-            <div className="collapse-content text-gray-600 p-6 text-sm md:text-base">
-              {faq.answer}
-            </div>
-          </details>
-        ))}
+      {/* Illustration */}
+      <div className="flex items-center justify-center flex-col lg:flex-row gap-6">
+        <img
+          src={faqIllustration}
+          alt="FAQ Illustration"
+          className="w-2/5"
+        />
+        {/* FAQ Accordion */}
+        <div className="mx-auto space-y-4 w-full lg:w-3/5">
+          {faqs.map((faq, index) => (
+            <details
+              key={index}
+              className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
+              open={index === 0} // first FAQ open by default
+            >
+              <summary className="font-semibold text-black p-6 cursor-pointer text-lg md:text-xl">
+                {faq.question}
+              </summary>
+              <div className="p-6 pt-0 text-black text-base md:text-lg leading-relaxed">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
+        </div>
       </div>
     </div>
   );

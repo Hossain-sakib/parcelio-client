@@ -7,15 +7,19 @@ const ParcelioLogo = () => {
         src={logo}
         alt="Parcelio Logo"
         className="
-          mb-2 
+        w-6
+        md:w-8
+          mb-1.5 
         "
       />
 
       <p
         className="
           font-extrabold
-          -ml-2
-          text-3xl                   
+         md:-ml-3
+         -ml-2
+          text-xl
+          md:text-2xl                   
         "
       >
         Parcelio
